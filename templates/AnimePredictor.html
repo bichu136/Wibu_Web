@@ -1,0 +1,51 @@
+{%extends "index.html"%}
+{% block content %}
+    <script src="/static/script/animepredictor.js"></script>
+    <div class = "container-fluid">
+        <div class="row">
+
+            <div class="col-lg">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#genre_collection" aria-expanded="false" aria-controls="genre_collection">
+                    Genre
+                </button>
+                <div class="collapse show" id="genre_collection"> 
+                    <div class="container">
+                        {% for value in genre_list%}
+                        <div class="column-sm-1"name = "genre"><input type="checkbox">{{value}}</div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#source_collection" aria-expanded="false" aria-controls="genre_collection">
+                Source
+                </button>
+                <div class="collapse show" id="source_collection"> 
+                    <div class="container">
+                        {% for value in source_list%}
+                        <div class="row-sm-4"><input type="radio" name="source">{{value}}</div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg ">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#studio_collection" aria-expanded="false" aria-controls="genre_collection">
+                    Studio
+                    </button>
+                    <div class="collapse show " id="studio_collection" > 
+                        <div class="container scrollbar scrollbar-primary">
+                            {% for value in studio_list%}
+                            <div class="column-sm-1"><input type="radio" name="studio">{{value}}</div>
+                            {%endfor%}
+                        </div>
+                    </div>
+            </div>
+            
+        </div>
+        <button class ="btn btn-dark" id="Done" onClick="DoneClick()">
+        Done
+        </button>
+    </div>
+
+{% endblock %}
