@@ -1,0 +1,74 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.btn-nut{
+	font-family: Verdana;
+}
+
+body {   
+background: url(./backgr1.jpg) no-repeat center center fixed;   
+-webkit-background-size: cover;  
+-moz-background-size: cover;  
+-o-background-size: cover;  
+background-size: cover;
+}
+ 
+.container{ 
+padding-top: 8px;
+}
+
+.header-logo{display:inline-block;margin-top:0px;float:left;}
+.header-logo .logo{background:url(./logo_full.png) 0px 0px;width:470px;height:114px;display:block;}
+
+
+.clear{clear:both;}
+
+/*sub-menu*/
+.dropdown{
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown-content{
+	display: none;
+	position: absolute;
+	background-color: #f5f5f5;
+	z-index: 1;
+	list-style: none;
+}
+
+.dropdown:hover .dropdown-content{
+   display: block;
+}
+/*****/
+
+.khoi{
+	width: 100%;
+	height: 500px;
+	background-color: #282828;
+}
+
+/*nominated movie*/
+.slide{
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	display: block;
+
+}
+
+.container .slide{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.font_random_suggest{
+	color:red;
+	font-size: 23px;
+    font-weight: bold;
+    text-shadow: 2px 1px black;
+    font-family: Trebuchet MS; 
+}
