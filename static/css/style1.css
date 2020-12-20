@@ -13,7 +13,9 @@
     margin-left: 40%;
     margin-right:40%;
 }
+
 #footer{
+    grid-area: footer;
     clear:both;
 }
 .nav-link:hover{
@@ -44,10 +46,38 @@
   max-width: 50%; /* The width is 60%, by default */
   
 }
-
+body{
+    grid-area: 
+    'header header header header header header header header header header'
+    'left left main main main main main main right right'
+    'footer footer footer footer footer footer footer footer footer footer',
+}
 /* Use a media query to add a breakpoint at 800px: */
 @media screen and (max-width: 800px) {
   .left, .main, .right {
     width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
+}
+.grid-container {
+    grid-area: main;
+    display: grid;
+    /* grid-template:repeat(6,10%); */
+    grid-template-areas:
+    'content content content content content content';
+    padding:5px;
+  }
+.grid-item{
+    /* padding: 20px; */
+    font-size: 10px;
+    text-align: center;
+}
+
+.thumbnail-vid{
+    size: 80px 100px;
+    max-width: 80%;
+    max-height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 5px;
 }
