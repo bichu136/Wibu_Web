@@ -85,3 +85,9 @@ padding-top: 8px;
     margin-right: auto;
     margin: 5px;
 }
+.card-img-top{
+	width: 12rem;
+  	height: 20rem;
+  	object-fit: contain;
+}
+
