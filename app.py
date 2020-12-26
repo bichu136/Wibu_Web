@@ -20,6 +20,10 @@ def anime_film(film_name):
 def anime_category(category_name):
     print(category_name)
     return flk.render_template("1cat.html",cat_name=category_name)
+@app.route("/year/<year>")
+def anime_year(year):
+    print(year)
+    return flk.render_template("1cat.html",cat_name=year)
 
 
 if __name__ == '__main__':
