@@ -34,24 +34,37 @@ def new_domain(str):
 new_img_url = pd.DataFrame({'image_url': [new_domain(t) for t in data['image_url'].values]})
 data5.update(new_img_url)
 
-
+#only get TV 
+data6 = data5[data5["type"]=="TV"]
+data7 = data6[data6["episodes"]>=10]
+data7.update(data7['genre'].fillna('_'))
+genres = []
+for _,i in data7['genre'].iteritems():
+    for j in i.split(','):
+        if j.strip() not in genres:
+            genres.append(j.strip())
+for genre in genres:
+    encoding = [genre in i for i in data7.genre]
+    data7.insert(0,"genre_"+genre,encoding,True)
+data7.drop(['genre'], axis=1, inplace=True)
+print(data7.columns)
+# print(data8.columns)
 
 # aired_string process
-date_time_aired = pd.DataFrame({'aired_str':[i.split('to')[0] for i in data5['aired_string']]})
-data5.insert(0,"aired_str",pd.to_datetime(date_time_aired['aired_str']).to_list(),True)
+date_time_aired = pd.DataFrame({'aired_str':[i.split('to')[0] for i in data7['aired_string']]})
+data7.insert(0,"aired_str",pd.to_datetime(date_time_aired['aired_str']).to_list(),True)
 #sort value
-data5 = data5.sort_values(by='aired_str',ascending=False)
-print(data5[['aired_str','aired_string']])
+data7 = data7.sort_values(by='aired_str',ascending=False)
+
+# print(data5[['aired_str','aired_string']])
 app = flk.Flask(__name__)
-url_D = data5[["image_url","title"]]
+
 @app.route("/")
 def index():
-    print(url_D['image_url'])
-    print(url_D['title'])
+    url_D = data7[["image_url","title"]]
     num_row= 6
-    
-    rows = [[[url_D['title'].iloc[j+i*4],url_D['image_url'].iloc[j+i*4]] for j in range(4)] for i in range(num_row)]
-
+    num_col=4
+    rows = [[[url_D['title'].iloc[num_row*num_col*(p-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(p-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
     return flk.render_template("index.html",rows=rows)
 @app.route("/AboutMe")
 def aboutme():
@@ -59,19 +72,28 @@ def aboutme():
 @app.route("/film/<film_name>")
 def anime_film(film_name):
     print(film_name)
-    return flk.render_template("1anime.html",film_name=film_name)
+    return flk.render_template("anime-info.html",film_name=film_name)
 @app.route("/category/<category_name>")
 def anime_category(category_name):
-    print(category_name)
-    return flk.render_template("1cat.html",cat_name=category_name)
+    # sort to specific category
+    data8 = data7[data7["genre_"+category_name]==1]
+    num_row= 8
+    num_col=4
+    url_D = data8[["image_url","title"]]
+    rows = [[[url_D['title'].iloc[num_row*num_col*(p-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(p-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
+    return flk.render_template("category_list.html",row = rows, category_name=category_name)
 @app.route("/page/<page>")
 def anime_page(page):
-    print(page)
-    return flk.render_template("1cat.html",page=page)
+    num_row= 8
+    num_col=4
+    p = int(page)
+    url_D = data7[["image_url","title"]]
+    rows = [[[url_D['title'].iloc[num_row*num_col*(p-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(p-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
+    return flk.render_template("category_list.html",page=page,rows=rows)
 @app.route("/year/<year>")
 def anime_year(year):
     print(year)
-    return flk.render_template("1cat.html",cat_name=year)
+    return flk.render_template("category_list.html",cat_name=year)
 
 
 if __name__ == '__main__':

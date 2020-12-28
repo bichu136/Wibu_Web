@@ -1,30 +1,26 @@
 {%extends "index.html"%}
 {% block content %}
-<div class="cat_name" style="color:white;font-size:40px">
-{{cat_name}}
-</div>
-<!-- chia khoi -->
+<!-- List movie -->
 <div class="container">
+	{%for row in rows%}
 	<div class="row">
+		{%for i in row%}
 		<div class="col-sm">
-			<div class="khoi"></div>
+			
+			<div class="card " style="width: 16rem; height: 23rem;">
+				<a href='/film/{{i[0]}}'>
+				<img src="{{i[1]}}" class="card-img-top" alt="...">
+				<div class="card-body">
+					<p class="card-text">{{i[0]}}</p>
+				</div>
+				</a>
+			</div>
 		</div>
-		<div class="col-sm">
-			<div class="khoi"></div>
-		</div>
-		<div class="col-sm">
-			<div class="khoi"></div>
-		</div>
-		<div class="col-sm">
-			<div class="khoi"></div>
-		</div>
-		<div class="col-sm">
-			<div class="khoi"></div>
-		</div>
-		<div class="col-sm">
-			<div class="khoi"></div>
-		</div>
+		{%endfor%}
 	</div>
+	<br>
+	{%endfor%}
+	
 </div>
-<!-- End chia khoi -->
+<!-- End list movie -->
 {% endblock %}
