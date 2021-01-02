@@ -64,7 +64,7 @@ def index():
     url_D = data7[["image_url","title"]]
     num_row= 6
     num_col=4
-    rows = [[[url_D['title'].iloc[num_row*num_col*(p-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(p-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
+    rows = [[[url_D['title'].iloc[num_row*num_col*(0-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(0-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
     return flk.render_template("index.html",rows=rows)
 @app.route("/AboutMe")
 def aboutme():
