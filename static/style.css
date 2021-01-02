@@ -118,3 +118,14 @@ padding-top: 10px;
 	font-size: 20px;
 	font-weight: 700;
 }
+
+.movie-new-ep{
+	font-family: Tahoma;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.anime_info{
+	height: 18rem;
+	max-height: 25rem;
+}
