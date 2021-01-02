@@ -64,7 +64,7 @@ def index():
     url_D = data7[["image_url","title"]]
     num_row= 6
     num_col=4
-    rows = [[[url_D['title'].iloc[num_row*num_col*(p-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(p-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
+    rows = [[[url_D['title'].iloc[num_row*num_col*(1-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(1-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
     return flk.render_template("index.html",rows=rows)
 @app.route("/AboutMe")
 def aboutme():
@@ -73,16 +73,19 @@ def aboutme():
 def anime_film(film_name):
     print(film_name)
     return flk.render_template("anime-info.html",film_name=film_name)
-@app.route("/category/<category_name>")
-def anime_category(category_name):
+@app.route("/category/<category_name>/<page>")
+def anime_category(category_name,page):
+    
+    #map the category
     # sort to specific category
     data8 = data7[data7["genre_"+category_name]==1]
     num_row= 8
     num_col=4
+    p = int(page)
     url_D = data8[["image_url","title"]]
     rows = [[[url_D['title'].iloc[num_row*num_col*(p-1)+j+i*num_col],url_D['image_url'].iloc[num_row*num_col*(p-1)+j+i*num_col]] for j in range(num_col)] for i in range(num_row)]
     return flk.render_template("category_list.html",row = rows, category_name=category_name)
-@app.route("/page/<page>")
+@app.route("/list/<page>")
 def anime_page(page):
     num_row= 8
     num_col=4
