@@ -1,7 +1,10 @@
-*{
+x*{
 	margin: 0;
 	padding: 0;
 }
+
+
+
 
 }
 .btn-nut{
@@ -18,7 +21,7 @@ background-size: cover;
 }
  
 .container{ 
-padding-top: 8px;
+padding-top: 10px;
 }
 
 .header-logo{display:inline-block;margin-top:0px;float:left;}
@@ -91,3 +94,38 @@ padding-top: 8px;
   	object-fit: contain;
 }
 
+/*info-film*/
+.movie-name{
+	font-size: 40px;
+	text-align: center;
+	color:red;
+}
+
+.movie-cagetory{
+	font-family: Tahoma;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.movie-year{
+	font-family: Tahoma;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.movie-content{
+	font-family: Tahoma;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.movie-new-ep{
+	font-family: Tahoma;
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.anime_info{
+	height: 18rem;
+	max-height: 25rem;
+}

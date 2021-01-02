@@ -1,3 +1,4 @@
+
 {%extends "index.html"%}
 {% block content %}
 <!-- Random suggest -->
@@ -6,68 +7,43 @@
 		<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
 			<ol class="carousel-indicators">
 			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
 			</ol>
-
 		 	<div class="carousel-inner">
 			    <div class="carousel-item active">
-				    <img src="/static/img/slide_4.jpg" class="d-block w-100" alt="first slide">
-				    <div class="carousel-caption" style="padding-bottom: 5%;">
-				        <h5 class="font_random_suggest">HONKAI IMPACT 3</h5>
-				        <p class="font_random_suggest">Trang phục mới của 「Vân Mặc Đan Tâm」:「Cerulean Court」.</p>
+				    <img src="/static/img/slide_4.jpg" class="d-block w-100">
 				    </div>
 			    </div>
-
-		    	<div class="carousel-item">
-		    		<img src="https://via.placeholder.com/900x380" class="d-block w-100" alt="second slide">
-		    		<div class="carousel-caption" style="padding-bottom: 5%;">
-		     			<h5>Second slide label</h5>
-		        		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-		      		</div>
-		    	</div>
-
-		    	<div class="carousel-item">
-		      		<img src="https://via.placeholder.com/900x380" class="d-block w-100" alt="third slide">
-		      		<!-- div class="carousel-caption d-none d-md-block" style="padding-bottom: 35%;" -->
-		      		<div class="carousel-caption" style="padding-bottom: 5%;">
-		        		<h5>Third slide label</h5>
-		        		<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-		      		</div>
-		    	</div>
-
 		 	</div>
-
-			<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			    <span class="visually-hidden">Previous</span>
-			</a>
-			<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-			    <span class="visually-hidden">Next</span>
-			</a>
 		</div>
  	</div>
-</div>
+</div>	
 
-<div class="container">
-
+<div class="container" style="padding-top: 10px;">
 	<div class="row">
-		<div class="col-sm-4">
-			tên film
+		<div class="col-sm-4" >
+			<div class="alert alert-secondary anime_info" role="alert">
+				<p style="font-size: 30px;color:red;">THÔNG TIN <br> </p>
+				<w class="movie-cagetory">Thể loại:</w> Hành động, Phưu lưu, Siêu nhiên<br>
+				<w class="movie-year">Năm sản xuất:</w> 2015 <br>
+				<w class="movie-new-ep">Tập mới nhất:
+				<div class="d-grid gap-2 d-md-block" style="display: inline;">
+					<button class="btn btn-secondary" type="button">1</button>
+		 			<button class="btn btn-secondary" type="button">2</button>
+		 			<button class="btn btn-secondary" type="button">3</button>
+				</div></w>
+				<br>
+				<a href="#"><button class="btn btn-danger btn-nut">Xem phim</button></a>
+			</div>
 		</div>
-		<div class="col-sm-4">
-			các genre 
+
+		<div class="col-sm-8">
+			<div class="alert alert-secondary anime_info" role="alert">
+				<p class="movie-name"> Naruto ( Phần 1) <p>
+				<w class="movie-content">Nội dung:</w> 12 năm trước, hồ ly 9 đuôi tấn công làng ninja Mộc Diệp, Hokage Đệ Tứ đã đánh bại và phong ấn vào cậu bé Naruto.Từ đó, Naruto bị mọi người xa lánh, vậy nên cậu tìm ra cách được thừa nhận và chú ý duy nhất – qua các trò phá phách và nghịch ngợm.Câu chuyện chính bám theo sự trưởng thành và tiến bộ của Naruto và bạn cậu khi làm ninja, và nhấn mạnh mối quan hệ giữa họ và sự ảnh hưởng của quá khứ đến tính cách họ. Naruto tìm được hai người bạn đồng hành cùng là Uchiha Sasuke và Haruno Sakura,
+				cuộc phiêu lưu bắt đầu. <br> <br>
+			</div>
 		</div>
-		<div class="col-sm-4">
-			1 chỗ để bấm xem tập
-		</div>
+
 	</div>
-</div>
-
-
-<!-- End Random suggest -->
-<div class="cat_name" style="color:white;font-size:40px">
-    content cho {{film_name}}
 </div>
 {% endblock %}
