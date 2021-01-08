@@ -7,10 +7,10 @@
 		{%for i in row%}
 		<div class="col-sm">
 			
-			<div class="card " style="width: 16rem; height: 23rem;">
+			<div class="card " style="width: 16rem; height: 100%;">
 				<a href='/film/{{i[0]}}'>
-				<img src="{{i[1]}}" class="card-img-top" alt="...">
-				<div class="card-body">
+				<img src="{{i[1]}}" class="card-img-top" alt="..." >
+				<div class="card-body" style="bottom: 0px; padding-bottom: 2px;">
 					<p class="card-text">{{i[0]}}</p>
 				</div>
 				</a>
@@ -20,6 +20,7 @@
 	</div>
 	<br>
 	{%endfor%}
+<!-- End list movie -->
 	
 		<!--<div class="d-grid gap-2 d-md-block">
 			<button class="btn btn-secondary" type="button">1</button>

@@ -37,17 +37,17 @@
         	<li class="nav-item dropdown">
           	<a class="nav-link" href="#" id="navbarDropdown">Thể loại</a>
           	<div class="dropdown-content">
-            	<a class="dropdown-item" href="/category/hanh_dong">Hành động</a>
-            	<a class="dropdown-item" href="/category/Doi_thuong">Đời thường</a>
-            	<a class="dropdown-item" href="/category/lang_mang">Lãng mạng</a>
-            	<a class="dropdown-item" href="/category/phieu_luu">Phiêu lưu</a>
-            	<a class="dropdown-item" href="/category/hoc_duong">Học đường</a>
-            	<a class="dropdown-item" href="/category/the_thao">Thể thao</a>
-            	<a class="dropdown-item" href="/category/hai_huoc">Hài hước</a>
-            	<a class="dropdown-item" href="/category/sieu_nhien">Siêu nhiên</a>
-            	<a class="dropdown-item" href="/category/vien_tuong">Viễn tưởng</a>
-            	<a class="dropdown-item" href="/category/mecha">Mecha</a>
-            	<a class="dropdown-item" href="/category/bi_kich">Bi kịch</a>
+            	<a class="dropdown-item" href="/category/hanh_dong/1">Hành động</a>
+            	<a class="dropdown-item" href="/category/Doi_thuong/1">Đời thường</a>
+            	<a class="dropdown-item" href="/category/lang_mang/1">Lãng mạng</a>
+            	<a class="dropdown-item" href="/category/phieu_luu/1">Phiêu lưu</a>
+            	<a class="dropdown-item" href="/category/hoc_duong/1">Học đường</a>
+            	<a class="dropdown-item" href="/category/the_thao/1">Thể thao</a>
+            	<a class="dropdown-item" href="/category/hai_huoc/1">Hài hước</a>
+            	<a class="dropdown-item" href="/category/sieu_nhien/1">Siêu nhiên</a>
+            	<a class="dropdown-item" href="/category/vien_tuong/1">Viễn tưởng</a>
+            	<a class="dropdown-item" href="/category/mecha/1">Mecha</a>
+            	<a class="dropdown-item" href="/category/bi_kich/1">Bi kịch</a>
           	</div>
         	</li>
 
@@ -64,16 +64,16 @@
         	</li>
 
         	<li class="nav-item">
-          	<a class="nav-link" href="#">Xem nhiều</a>
+          	<a class="nav-link" href="#">phim duoc ua thich</a>
         	</li>
       	</ul>
 <!-- END MUC LUC -->
 
 <!-- THANH SEARCH -->
-      		<form class="d-flex">
-        		<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        		<button class="btn btn-outline-success" type="submit">Tìm</button>
-      		</form>
+      		<div class="d-flex">
+        		<input id = "search-box" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        		<button id="search-button" class="btn btn-outline-success">Tìm</button>
+			  </div>
 
     	</div>
   	</div>
@@ -146,10 +146,10 @@
 		{%for i in row%}
 		<div class="col-sm">
 			
-			<div class="card " style="width: 16rem; height: 23rem;">
+			<div class="card " style="width: 16rem; height: 100%;">
 				<a href='/film/{{i[0]}}'>
-				<img src="{{i[1]}}" class="card-img-top" alt="...">
-				<div class="card-body">
+				<img src="{{i[1]}}" class="card-img-top" alt="..." >
+				<div class="card-body" style="bottom: 0px; padding-bottom: 2px;">
 					<p class="card-text">{{i[0]}}</p>
 				</div>
 				</a>
@@ -164,12 +164,15 @@
 <!-- End list movie -->
 
 <div class="container">
-	<a href="/page/1"><button class="btn btn-danger btn-nut" style="margin-left: 45%;" >Xem thêm</button></a>
+	<a href="/list/1"><button class="btn btn-danger btn-nut" style="margin-left: 45%;" >Xem thêm</button></a>
 </div>
 {% endblock %}
 	<br>
-	
+	<p class="dynamic-change">
+		TextChanging
+	</p>
 
 	<script src="/static/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
+	<script src="/static/script/search.js"></script>
 </body>
