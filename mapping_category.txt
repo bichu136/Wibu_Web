@@ -1,0 +1,11 @@
+hanh_dong|Action
+Doi_thuong|Slice of Life
+lang_mang|Romance
+phieu_luu|Adventure
+hoc_duong|School
+the_thao|Sports
+hai_huoc|Comedy
+sieu_nhien|Supernatural
+vien_tuong|Sci-Fi
+mecha|Mecha
+bi_kich|Drama
