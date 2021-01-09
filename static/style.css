@@ -56,6 +56,17 @@ padding-top: 10px;
 	text-emphasis-color: red;
 }
 
+.film_thumbnail{
+	font-style: normal;
+	font-family: Tahoma;
+	text-decoration: none;
+}
+
+.film_card{
+	border-color: black;
+	border: 5px;
+}
+
 /*nominated movie*/
 .slide{
 	width: 100%;
@@ -72,11 +83,12 @@ padding-top: 10px;
 }
 
 .font_random_suggest{
-	color:red;
-	font-size: 23px;
+	color:white;
+	font-size: 40px;
     font-weight: bold;
-    text-shadow: 2px 1px black;
     font-family: Trebuchet MS; 
+    background: rgba(0,0,0,0.5);
+    padding: 8px;
 }
 
 .thumbnail-vid{

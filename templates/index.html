@@ -89,31 +89,45 @@
 			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
 			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
 			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></li>
+			    <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"></li>
 			</ol>
 
 		 	<div class="carousel-inner">
 			    <div class="carousel-item active">
-				    <img src="/static/img/slide_4.jpg" class="d-block w-100" alt="first slide">
-				    <div class="carousel-caption" style="padding-bottom: 5%;">
-				        <h5 class="font_random_suggest">HONKAI IMPACT 3</h5>
-				        <p class="font_random_suggest">Trang phục mới của 「Vân Mặc Đan Tâm」:「Cerulean Court」.</p>
-				    </div>
+			    	<a href="/film/Naruto" title="NARUTO">
+		    		<img src="/static/img/naruto.jpg" class="d-block w-100"></a>
+		    		<div class="carousel-caption" style="padding-bottom: 15%;">
+		     			<h5><span class="font_random_suggest">NARUTO</span></h5>
+		      		</div>
 			    </div>
 
 		    	<div class="carousel-item">
-		    		<img src="https://via.placeholder.com/900x380" class="d-block w-100" alt="second slide">
-		    		<div class="carousel-caption" style="padding-bottom: 5%;">
-		     			<h5>Second slide label</h5>
-		        		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		    		<a href="/film/ONE" title="ONE PIECE">
+				    <img src="/static/img/one_piece.png" class="d-block w-100"></a>
+				    <div class="carousel-caption" style="padding-bottom: 17%;">
+				        <h5><span class="font_random_suggest">ONE PIECE</span></h5>
+				    </div>
+		    	</div>
+
+		    	<div class="carousel-item">
+		      		<img src="/static/img/pokemon.jpg" class="d-block w-100">
+		      		<div class="carousel-caption" style="padding-bottom: 19%;">
+		        		<h5><span class="font_random_suggest">POKEMON</span></h5>
 		      		</div>
 		    	</div>
 
 		    	<div class="carousel-item">
-		      		<img src="https://via.placeholder.com/900x380" class="d-block w-100" alt="third slide">
-		      		<!-- div class="carousel-caption d-none d-md-block" style="padding-bottom: 35%;" -->
-		      		<div class="carousel-caption" style="padding-bottom: 5%;">
-		        		<h5>Third slide label</h5>
-		        		<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+		      		<img src="/static/img/pokemon.jpg" class="d-block w-100">
+		      		<div class="carousel-caption" style="padding-bottom: 19%;">
+		        		<h5><span class="font_random_suggest">POKEMON</span></h5>
+		      		</div>
+		    	</div>
+
+		    	<div class="carousel-item">
+		      		<img src="/static/img/pokemon.jpg" class="d-block w-100">
+		      		<div class="carousel-caption" style="padding-bottom: 19%;">
+		        		<h5><span class="font_random_suggest">POKEMON</span></h5>
 		      		</div>
 		    	</div>
 
@@ -146,8 +160,8 @@
 		{%for i in row%}
 		<div class="col-sm">
 			
-			<div class="card " style="width: 16rem; height: 100%;">
-				<a href='/film/{{i[0]}}'>
+			<div class="card film_card"  style="width: 16rem; height: 100%;">
+				<a class="film_thumbnail" href='/film/{{i[0]}}'>
 				<img src="{{i[1]}}" class="card-img-top" alt="..." >
 				<div class="card-body" style="bottom: 0px; padding-bottom: 2px;">
 					<p class="card-text">{{i[0]}}</p>
