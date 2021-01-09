@@ -1,9 +1,7 @@
-import nltk
 import pickle
 import os
 import re
 import math
-import matplotlib.pyplot as plt
 import time
 import pandas
 class HyperParams:
