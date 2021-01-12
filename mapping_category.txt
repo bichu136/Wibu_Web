@@ -1,11 +1,11 @@
-hanh_dong|Action
-Doi_thuong|Slice of Life
-lang_mang|Romance
-phieu_luu|Adventure
-hoc_duong|School
-the_thao|Sports
-hai_huoc|Comedy
-sieu_nhien|Supernatural
-vien_tuong|Sci-Fi
-mecha|Mecha
-bi_kich|Drama
+hanh_dong|Action|hành động
+Doi_thuong|Slice of Life|Đời thường
+lang_mang|Romance|lãng mạng
+phieu_luu|Adventure|phiêu lưu
+hoc_duong|School|học đường
+the_thao|Sports|thể thao
+hai_huoc|Comedy|hài hước
+sieu_nhien|Supernatural|siêu nhiên
+vien_tuong|Sci-Fi|viễn tưỡng
+mecha|Mecha|mecha
+bi_kich|Drama|bi kịch

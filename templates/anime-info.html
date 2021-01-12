@@ -23,13 +23,17 @@
 		<div class="col-sm-4" >
 			<div class="alert alert-secondary anime_info" role="alert">
 				<p style="font-size: 30px;color:red;">THÔNG TIN <br> </p>
-				<w class="movie-cagetory">Thể loại:</w> Hành động, Phưu lưu, Siêu nhiên<br>
-				<w class="movie-year">Năm sản xuất:</w> 2015 <br>
+				<w class="movie-cagetory">Thể loại:</w>
+				{%for i in genres%}
+				<a href = "{{'/category/'+i[1]+'/1' }}"><button class="btn btn-secondary category_btn" type="button">{{i[0]}}</button></a>
+				{%endfor%}
+				<br>
+				<w class="movie-year">Năm sản xuất:</w> {{year}} <br>
 				<w class="movie-new-ep">Tập mới nhất:
 				<div class="d-grid gap-2 d-md-block" style="display: inline;">
-					<button class="btn btn-secondary" type="button">1</button>
-		 			<button class="btn btn-secondary" type="button">2</button>
-		 			<button class="btn btn-secondary" type="button">3</button>
+					<button class="btn btn-secondary" type="button">{{episodes}}</button>
+		 			<button class="btn btn-secondary" type="button">{{episodes-1}}</button>
+		 			<button class="btn btn-secondary" type="button">{{episodes-2}}</button>
 				</div></w>
 				<br>
 				<a href="#"><button class="btn btn-danger btn-nut">Xem phim</button></a>
