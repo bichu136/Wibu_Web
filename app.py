@@ -1,9 +1,7 @@
 import flask as flk
 from flask import request,redirect
-import numpy as np
 import json
 import os
-import pandas as pd
 from tf_idf_1 import TfIdfIndex
 from data_manager import DataManager,read_csv
 indexer = TfIdfIndex()
