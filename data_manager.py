@@ -30,8 +30,11 @@ class DataManager():
         episodes = x['episodes'].iloc[0]
         # content = x['content']
         year=x['aired_str'].iloc[0].split('-')[0]
-        return title,genres,episodes,year
-
+        content = self.__get_content(x['anime_id'].iloc[0])
+        return title,genres,episodes,year,content
+    def __get_content(self,anime_id):
+        s = open('./content/{}'.format(str(anime_id)+'.txt'),encoding='utf-8').read()
+        return s
     def __max_page(self,df):
         l = len(df)
         if l% (DataManager.num_col*DataManager.num_row)==0:

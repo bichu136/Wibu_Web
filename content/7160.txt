@@ -1,0 +1,1 @@
+<p itemprop="description">Mechadock is a powerful race car obtained from a simple economy car, which is able to race on any ground.</p>

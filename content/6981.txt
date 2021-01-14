@@ -1,0 +1,1 @@
+<p itemprop="description">A story about mahjong.</p>

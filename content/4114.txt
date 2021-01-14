@@ -1,0 +1,1 @@
+<p itemprop="description">A continuation of Onegai My Melody.</p>

@@ -21,8 +21,8 @@ def aboutme():
 
 @app.route("/film/<film_name>")
 def anime_film(film_name):
-    title,genres,episodes,year = data_manager.get_anime_info_by_name(film_name)
-    return flk.render_template("anime-info.html",film_name=title,content="content",episodes=episodes,genres=genres,year=year)
+    title,genres,episodes,year,content = data_manager.get_anime_info_by_name(film_name)
+    return flk.render_template("anime-info.html",film_name=title,content=content,episodes=episodes,genres=genres,year=year)
 
     
 @app.route("/category/<category_name>/<page>")

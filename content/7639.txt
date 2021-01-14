@@ -1,0 +1,1 @@
+<p itemprop="description">Based on L. Frank Baum' novel: The Life and Adventures of Santa Claus.</p>

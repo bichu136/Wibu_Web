@@ -5,7 +5,7 @@
 <div class="container">   
 		 	<div class="carousel-inner">
 			    <div class="carousel-item active">
-				    <img src="/static/img/JUST_GOOGLE_IT.png" class="d-block w-100 h-100" style="max-height=100%;max-width: 100%;">
+				    <img src="/static/img/JUST_GOOGLE_IT.png" class="d-block w-100 h-100" ><!--style= "max-height= 100%, max-width: 100%;"-->
 				</div>
 			</div>
 </div>	
@@ -34,10 +34,11 @@
 
 		<div class="col-sm-8">
 			<div class="alert alert-secondary anime_info" role="alert">
-				<p class="movie-name"> {{film_name}} <p>
-				<w class="movie-content">Nội dung:</w> 12 năm trước, hồ ly 9 đuôi tấn công làng ninja Mộc Diệp, Hokage Đệ Tứ đã đánh bại và phong ấn vào cậu bé Naruto.Từ đó, Naruto bị mọi người xa lánh, vậy nên cậu tìm ra cách được thừa nhận và chú ý duy nhất – qua các trò phá phách và nghịch ngợm.Câu chuyện chính bám theo sự trưởng thành và tiến bộ của Naruto và bạn cậu khi làm ninja, và nhấn mạnh mối quan hệ giữa họ và sự ảnh hưởng của quá khứ đến tính cách họ. Naruto tìm được hai người bạn đồng hành cùng là Uchiha Sasuke và Haruno Sakura,
-				cuộc phiêu lưu bắt đầu. <br> <br>
+				<p class="movie-name"> {{film_name}} </p>
+				<w class="movie-content">Nội dung:</w> <br>
+				{{ content|safe }}
 			</div>
+			
 		</div>
 
 	</div>
