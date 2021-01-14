@@ -1,19 +1,21 @@
-x*{
+*{
 	margin: 0;
 	padding: 0;
+	font-family: Open Sans;
 }
 
-
-
+@font-face{
+	font-family: Open Sans;
+	src:url("Fonts/Open_Sans/OpenSans-Regular.ttf");
 
 }
+
 .btn-nut{
-	font-family: Tahoma;
-	margin-left: 45%;
+	margin-left: 80%;
 }
 
 body {   
-background: url(./backgr1.jpg) no-repeat center center fixed;   
+background: url(./img/backgr1.jpg) no-repeat center center fixed;   
 -webkit-background-size: cover;  
 -moz-background-size: cover;  
 -o-background-size: cover;  
@@ -25,7 +27,7 @@ padding-top: 10px;
 }
 
 .header-logo{display:inline-block;margin-top:0px;float:left;}
-.header-logo .logo{background:url(./logo_full.png) 0px 0px;width:470px;height:114px;display:block;}
+.header-logo .logo{background:url(./img/logo_full.png) 0px 0px;width:470px;height:114px;display:block;}
 
 
 .clear{clear:both;}
@@ -60,11 +62,14 @@ padding-top: 10px;
 	font-style: normal;
 	font-family: Tahoma;
 	text-decoration: none;
+	padding-right: 0px;
+	margin-right:0px;
 }
 
 .film_card{
 	border-color: black;
 	border: 5px;
+	margin-right: 0px;
 }
 
 /*nominated movie*/
@@ -101,9 +106,11 @@ padding-top: 10px;
     margin: 5px;
 }
 .card-img-top{
-	width: 12rem;
+	max-width:100%;
   	height: 20rem;
   	object-fit: contain;
+  	padding-left: 5px;
+  	padding-right: 5px;
 }
 
 /*info-film*/
@@ -114,25 +121,21 @@ padding-top: 10px;
 }
 
 .movie-cagetory{
-	font-family: Tahoma;
 	font-size: 20px;
 	font-weight: 700;
 }
 
 .movie-year{
-	font-family: Tahoma;
 	font-size: 20px;
 	font-weight: 700;
 }
 
 .movie-content{
-	font-family: Tahoma;
 	font-size: 20px;
 	font-weight: 700;
 }
 
 .movie-new-ep{
-	font-family: Tahoma;
 	font-size: 20px;
 	font-weight: 700;
 }
@@ -140,4 +143,36 @@ padding-top: 10px;
 .anime_info{
 	height: 18rem;
 	max-height: 25rem;
+}
+
+
+
+#BackToTop_BTN {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 18px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background:url(/static/img/backtotop-btn.png) 0px 0px;width:80px;height:80px; display: hidden;
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+}
+
+/*#BackToTop_BTN:hover {
+  background-color: #555;
+}*/
+
+.col-listfilm{
+	padding: 0px 0px;
+	max-width: 75%;
+}
+
+.text-listfilm{
+	font-size: 15px;
+	text-align: center;
+	max-height: 25%;
+	padding: 0px;
+	padding-bottom: 5px;
 }
