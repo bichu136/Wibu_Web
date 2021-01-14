@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Watch Anime Online</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="/static/style.css">
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/style.css">
+	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
+
 </head>
 <body>
 
@@ -155,32 +156,111 @@
 
 <!-- List movie -->
 <div class="container">
-	{%for row in rows%}
 	<div class="row">
-		{%for i in row%}
-		<div class="col-sm">
-			
-			<div class="card film_card"  style="width: 16rem; height: 100%;">
-				<a class="film_thumbnail" href='/film/{{i[0]}}'>
-				<img src="{{i[1]}}" class="card-img-top" alt="..." >
-				<div class="card-body" style="bottom: 0px; padding-bottom: 2px;">
-					<p class="card-text">{{i[0]}}</p>
+
+		<div class="col-sm-8">
+			<div class="container" style="padding-left: 10px;">
+				{%for row in rows%}
+				<div class="row" style="padding-bottom: 10px;">
+					{%for i in row%}
+					<div class="col-sm col-listfilm">
+						<div class="card film_card"  style="width: 95%; height: 100%; background-color: #400080;">
+							<a class="film_thumbnail" href='/film/{{i[0]}}' style="color: white;">
+							<img src="{{i[1]}}" class="card-img-top" alt="..." >
+							<div class="card-body text-listfilm" style="bottom: 0px;">
+								<p class="card-text">{{i[0]}}</p>
+							</div>
+							</a>
+						</div>
+					</div>
+					{%endfor%}
 				</div>
-				</a>
+				
+				{%endfor%}
 			</div>
 		</div>
-		{%endfor%}
-	</div>
-	<br>
-	{%endfor%}
-	
+
+		<div class="col-sm-4">
+			<div class="container" style="padding-left: 0px; padding-right: 0px;">
+				<div class="btn-danger">
+					<p style="font-size: 25px;"> <i class="fas fa-star" style="color:orange;"></i> <span>BẢNG XẾP HẠNG</span> </p>
+				</div>
+				<div class="list-group">
+				    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+				        <div class="d-flex w-100 justify-content-between">
+				            <h5 class="mb-1">List group item heading</h5>
+				            <small>3 days ago</small>
+				        </div>
+				        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				        <small>Donec id elit non mi porta.</small>
+				    </a>
+				    <a href="#" class="list-group-item list-group-item-action">
+				        <div class="d-flex w-100 justify-content-between">
+				            <h5 class="mb-1">List group item heading</h5>
+				            <small class="text-muted">3 days ago</small>
+				        </div>
+				        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				        <small class="text-muted">Donec id elit non mi porta.</small>
+				    </a>
+				    <a href="#" class="list-group-item list-group-item-action">
+				        <div class="d-flex w-100 justify-content-between">
+				            <h5 class="mb-1">List group item heading</h5>
+				            <small class="text-muted">3 days ago</small>
+				        </div>
+				        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				        <small class="text-muted">Donec id elit non mi porta.</small>
+				    </a>
+				</div>
+
+				<br>
+				<br>
+				<br>
+
+				<div class="btn-danger">
+					<p style="font-size: 25px;"> <i class="fas fa-star" style="color:orange;"></i> <span>BẢNG XẾP HẠNG</span> </p>
+				</div>
+				<div class="list-group">
+				    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+				        <div class="d-flex w-100 justify-content-between">
+				            <h5 class="mb-1">List group item heading</h5>
+				            <small>3 days ago</small>
+				        </div>
+				        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				        <small>Donec id elit non mi porta.</small>
+				    </a>
+				    <a href="#" class="list-group-item list-group-item-action">
+				        <div class="d-flex w-100 justify-content-between">
+				            <h5 class="mb-1">List group item heading</h5>
+				            <small class="text-muted">3 days ago</small>
+				        </div>
+				        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				        <small class="text-muted">Donec id elit non mi porta.</small>
+				    </a>
+				    <a href="#" class="list-group-item list-group-item-action">
+				        <div class="d-flex w-100 justify-content-between">
+				            <h5 class="mb-1">List group item heading</h5>
+				            <small class="text-muted">3 days ago</small>
+				        </div>
+				        <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				        <small class="text-muted">Donec id elit non mi porta.</small>
+				    </a>
+				</div>
+			</div>
+		</div>
+
+	</div>	
 </div>
 <!-- End list movie -->
 
 <div class="container">
-	<a href="/list/1"><button class="btn btn-danger btn-nut" style="margin-left: 45%;" >Xem thêm</button></a>
+	<a href="/list/1"><button class="btn btn-danger btn-nut">Xem thêm</button></a>
 </div>
 {% endblock %}
+
+<!-- Back to top Button -->
+<button onclick="topFunction()" id="BackToTop_BTN" title="Go to top"></button>
+<!-- End Back to top Button -->
+
 	<br>
 	<p class="dynamic-change">
 		TextChanging
@@ -190,3 +270,5 @@
 	<script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
 	<script src="/static/script/search.js"></script>
 </body>
+
+
