@@ -28,24 +28,23 @@
 			{%endfor%}
 		</ul>
 		</nav>
-	{%for row in rows%}
-	<div class="row">
-		{%for i in row%}
-		<div class="col-sm">
-			
-			<div class="card " style="width: 16rem; height: 100%;">
-				<a href='/film/{{i[0]}}'>
-				<img src="{{i[1]}}" class="card-img-top" alt="..." >
-				<div class="card-body" style="bottom: 0px; padding-bottom: 2px;">
-					<p class="card-text">{{i[0]}}</p>
+		{%for row in rows%}
+		<div class="row" style="padding-bottom: 10px;">
+			{%for i in row%}
+			<div class="col-sm-3 col-listfilm">
+				<div class="card film_card"  style="width: 95%; height: 100%; background-color: #400080;">
+					<a class="film_thumbnail" href='/film/{{i[0]}}' style="color: white;">
+					<img src="{{i[1]}}" class="card-img-top" alt="..." >
+					<div class="card-body text-listfilm" style="bottom: 0px;">
+						<p class="card-text">{{i[0]}}</p>
+					</div>
+					</a>
 				</div>
-				</a>
 			</div>
+			{%endfor%}
 		</div>
+		
 		{%endfor%}
-	</div>
-	<br>
-	{%endfor%}
 <!-- End list movie -->
 	
 		<!--<div class="d-grid gap-2 d-md-block">
