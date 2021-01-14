@@ -1,4 +1,5 @@
 import pandas as pd
+from tf_idf_1 import TfIdfIndex
 
 def read_csv(csv_path):
     data = pd.read_csv(csv_path)
@@ -7,6 +8,7 @@ def read_csv(csv_path):
 class DataManager():
     num_row= 8
     num_col=4
+    __indexer = TfIdfIndex()
     def __init__(self,DataFrame):
         self.Data = DataFrame
         f_mapper = open('mapping_category.txt',encoding='utf-8').readlines()
@@ -15,12 +17,10 @@ class DataManager():
         self.__invert_mapper = {i.strip().split('|')[1]: i.strip().split('|')[2] for i in f_mapper}
         self.Data = self.Data.sort_values(by='aired_str',ascending=False)
     def __get_genres(self,x):
-        _x = x[['genre_Comedy','genre_Sci-Fi','genre_Romance','genre_Adventure','genre_Action','genre_School','genre_Drama','genre_Slice of Life','genre_Mecha','genre_Supernatural']]
-        print(_x)
+        _x = x[['genre_Comedy','genre_Sci-Fi','genre_Romance','genre_Adventure','genre_Action','genre_School','genre_Drama','genre_Slice of Life','genre_Mecha','genre_Supernatural','genre_Sports']]
         genres_list = _x.columns[_x.eq(True).any()]
         result = []
         for i in genres_list:
-            print(i)
             result.append((self.__invert_mapper[i.split('_')[1]],self.__mapper_reverse[i.split('_')[1]]))
         return result
     def get_anime_info_by_name(self,film_name):
@@ -61,6 +61,8 @@ class DataManager():
         rows = self.__get_rows(url_D,DataManager.num_row,DataManager.num_col,p)
         list_page= self.__create_list_page(url_D,p,'/list')
         return rows,list_page
+    def get_category_name(self,category_name):
+        return self.__invert_mapper[self.__mapper[category_name]]
 
 
     def get_rows_and_list_page_for_category(self,category_name,page):
@@ -72,22 +74,43 @@ class DataManager():
         return rows,list_page
 
 
-    def __create_list_page(self,URL_D,page,page_path):
+    def __create_list_page(self,URL_D,page,page_path,query=''):
         max_page = self.__max_page(URL_D)
-        r = [[i,'clickable',page_path+'/'+str(i)] for i in range(page-2,page+3) if i>0 and i<max_page]
+        if query:
+            page_path = page_path+'/{0}'+'?query={}'.format(query)
+        else:
+            page_path = page_path+'/{0}'
+        r = [[i,'clickable',page_path.format(str(i))] for i in range(page-2,page+3) if i>0 and i<=max_page]
         for i in r:
             if i[0]==page:
                 i[1]='onit'
-        if r[0][0]==1 and r[0][1]=='onit':
-            return [['previous','disable',page_path+'/'+str(page-1)]]+r+[['next','clickable',page_path+'/'+str(page+1)]]
-        else :
-            return [['previous','clickable',page_path+'/'+str(page+1)]]+r+[['next','clickable',page_path+'/'+str(page+1)]]
+        if r!=[]:
+            if r[0][0]==1 and r[0][1]=='onit':
+                return [['previous','disable',page_path.format(str(page-1))]]+r+[['next','clickable',page_path.format(str(page+1))]]
+            elif r[-1][0]==max_page and r[-1][1]=='onit':
+                return [['previous','clickable',page_path.format(str(page-1))]]+r+[['next','disable',page_path.format(str(page+1))]]
+            else : 
+                return [['previous','clickable',page_path.format(str(page-1))]]+r+[['next','clickable',page_path.format(str(page+1))]]
+        return r
 
     def get_rows_and_list_page_for_year(self,year,page):
-        data8 = self.Data['premiered'].str.contains(str(year)).any()
-        print(data8)
-        url_D = self.Data[["image_url","title"]]
+        data8 = self.Data[self.Data['premiered'].str.contains(str(year))==True]
+        url_D = data8[["image_url","title"]]
         p = int(page)
         rows = self.__get_rows(url_D,DataManager.num_row,DataManager.num_col,p)
         list_page= self.__create_list_page(url_D,p,'/year/'+year)
         return rows,list_page
+    def get_rows_for_searched_query(self,query,page):
+        p = int(page)
+        searched = DataManager.__indexer.Retrieve(query)
+        x = []
+        for i in searched:
+            x.append(self.Data[self.Data['anime_id'] == i[0]].iloc[0])
+        if x!=[]:
+            x = pd.DataFrame(x)
+            url_D = x[["image_url","title"]]
+            list_page = self.__create_list_page(url_D,page_path='/searched',query=query,page=p)
+            rows = self.__get_rows(url_D,DataManager.num_row,DataManager.num_col,p)
+            return rows,list_page
+        else:
+            return [],[]
