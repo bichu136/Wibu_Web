@@ -7,13 +7,13 @@
 		{%for i in row%}
 		<div class="col-sm">
 			
-			<div class="card " style="width: 16rem; height: 100%;">
-				<a href='/film/{{i[0]}}'>
+			<div class="card " style="width: 90%; height: 95%; background-color: #400080;">
+				<p href='/film/{{i[0]}}'>
 				<img src="{{i[1]}}" class="card-img-top" alt="..." >
-				<div class="card-body" style="bottom: 0px; padding-bottom: 2px;">
+				<div class="card-body" style="bottom: 0px; padding-top: 0px; padding-bottom: 10px; color:white; text-align: center;">
 					<p class="card-text">{{i[0]}}</p>
 				</div>
-				</a>
+				</p>
 			</div>
 		</div>
 		{%endfor%}
