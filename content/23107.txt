@@ -1,0 +1,1 @@
+<p itemprop="description">New series of Tamagotchi!.</p>

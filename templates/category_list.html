@@ -1,7 +1,33 @@
 {%extends "index.html"%}
 {% block content %}
+
+<div class="container">
+	<button class="btn btn-danger btn-nut" style="font-size: 23px; color: white;" >
+		{{cat_name}}
+	</button>
+</div>
+
 <!-- List movie -->
 <div class="container">
+	<nav aria-label="...">
+		<ul class="pagination">
+			{%for i in list_page%}
+			{%if i[1]=='disable'%}
+			<li class="page-item disabled">
+				<a class="page-link" href="{{i[2]}}" tabindex="-1" aria-disabled="true">{{i[0]}}</a>
+			</li>
+			{% endif %}
+			{% if i[1]=='onit' %}
+			<li class="page-item active" aria-current="page">
+				<a class="page-link" href="{{i[2]}}">{{i[0]}}</a>
+			</li>
+			{% endif %}
+			{% if i[1]=='clickable' %}
+			<li class="page-item"><a class="page-link" href="{{i[2]}}">{{i[0]}}</a></li>
+			{% endif %}
+			{%endfor%}
+		</ul>
+		</nav>
 	{%for row in rows%}
 	<div class="row">
 		{%for i in row%}
