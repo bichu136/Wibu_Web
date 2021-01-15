@@ -11,7 +11,7 @@
 }
 
 .btn-nut{
-	/* margin-left: 80%; */
+	margin-left: 87%;
 }
 
 body {   
@@ -115,7 +115,7 @@ padding-top: 10px;
 
 /*info-film*/
 .movie-name{
-	font-size: 40px;
+	font-size: 25px;
 	text-align: center;
 	color:red;
 }
@@ -144,8 +144,7 @@ padding-top: 10px;
 	height: 18rem;
 	max-height: 25rem;
 }
-
-
+/* End Info Film */
 
 #BackToTop_BTN {
   display: none; /* Hidden by default */
@@ -160,10 +159,6 @@ padding-top: 10px;
   padding: 15px; /* Some padding */
 }
 
-/*#BackToTop_BTN:hover {
-  background-color: #555;
-}*/
-
 .col-listfilm{
 	padding: 0px 0px;
 	max-width: 75%;
@@ -175,4 +170,40 @@ padding-top: 10px;
 	max-height: 25%;
 	padding: 0px;
 	padding-bottom: 5px;
+}
+
+/*Footer*/
+
+.footer-dark {
+  padding:20px;
+  color:#f0f9ff;
+  background-color:#404040;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:20px;
+  opacity:0.8;
+  font-size:15px;
+  margin-bottom:0;
 }

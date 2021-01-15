@@ -1,19 +1,18 @@
-
 {%extends "index.html"%}
 {% block content %}
 <!-- Random suggest -->
-<div class="container">   
-		 	<div class="carousel-inner">
-			    <div class="carousel-item active">
-				    <img src="/static/img/JUST_GOOGLE_IT.png" class="d-block w-100 h-100" ><!--style= "max-height= 100%, max-width: 100%;"-->
-				</div>
-			</div>
-</div>	
-
+		<!-- <div class="container">   
+				 	<div class="carousel-inner">
+					    <div class="carousel-item active">
+						    <img src="https://via.placeholder.com/800x400" class="d-block w-100 h-100" >
+						</div>
+					</div>
+		</div> -->
+<br>
 <div class="container" style="padding-top: 10px;">
 	<div class="row">
 		<div class="col-sm-4" >
-			<div class="alert alert-secondary anime_info" role="alert">
+			<div class="alert alert-secondary anime_info" role="alert" style="height: 100%;">
 				<p style="font-size: 30px;color:red;">THÔNG TIN <br> </p>
 				<w class="movie-cagetory">Thể loại:</w>
 				{%for i in genres%}
@@ -28,19 +27,26 @@
 		 			<button class="btn btn-secondary" type="button">{{episodes-2}}</button>
 				</div></w>
 				<br>
-				<a href="#"><button class="btn btn-danger btn-nut">Xem phim</button></a>
+				<a href="#"><button class="btn btn-danger">Xem phim</button></a>
 			</div>
 		</div>
 
 		<div class="col-sm-8">
-			<div class="alert alert-secondary anime_info" role="alert">
-				<p class="movie-name"> {{film_name}} </p>
-				<w class="movie-content">Nội dung:</w> <br>
-				{{ content|safe }}
-			</div>
-			
-		</div>
+					<div class="alert alert-secondary anime_info" role="alert" style="height: 100%;">
+							<p class="movie-name"> {{film_name}} </p>
 
+								<div class="container">
+									<div class="row">
+										<div class="col-sm-4">Thêm hình vào đây</div>
+										<div class="col-sm-8">
+							<w class="movie-content">Nội dung:</w> <br>
+							<div style="width: 100%; height: 200px;overflow: auto;">{{ content|safe }}</div>
+										</div>
+									</div>
+								</div>
+
+					</div>		
+		</div>
 	</div>
 </div>
 {% endblock %}

@@ -55,7 +55,9 @@ def searched(page):
     p = int(page)
     rows,list_page= data_manager.get_rows_for_searched_query(query,page)
     return flk.render_template('category_list.html',page=p,rows=rows,list_page=list_page,cat_name="Search for: {0}".format(query))
-
+@app.route("/film/<film_name>/<episode>")
+def watch(film_name,episode):
+    return flk.render_template('anime-watching.html')
 
 if __name__ == '__main__':
     app.run(debug=True,port=int(os.environ.get('PORT', 8080)))
