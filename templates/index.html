@@ -195,7 +195,7 @@
 				
 				<div class="list-group">
 					{%for i in ranked_list%}
-				    <a href="#" style="color:white">
+				    <a href="/film/{{i['title']}}" style="color:white">
 				        <div class="row" style="height: 10rem; background-color: grey; border-bottom:1px solid white">
 							<div class='col-sm-3' style="max-height: 100%; ">
 								<img src="{{i['image_url']}}" style="max-height: 100%"></img>
@@ -218,7 +218,7 @@
 				</div>
 				<div class="list-group">
 				    {%for i in random_list%}
-				    <a href="#" style="color:white">
+				    <a href="/film/{{i['title']}}" style="color:white">
 				        <div class="row" style="height: 10rem; background-color: grey; border-bottom:1px solid white">
 							<div class='col-sm-3' style="max-height: 100%; ">
 								<img src="{{i['image_url']}}" style="max-height: 100%"></img>

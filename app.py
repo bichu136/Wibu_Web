@@ -11,8 +11,6 @@ data_manager = read_csv('processed_data.csv')
 @app.route("/")
 def index():
     rows,_,ranked_list,random_list = data_manager.get_rows_and_list_page_for_list(1)
-    print(ranked_list)
-    print(random_list)
     return flk.render_template("index.html",rows=rows,ranked_list=ranked_list.to_dict('records'),random_list=random_list.to_dict('records'))
 
 
