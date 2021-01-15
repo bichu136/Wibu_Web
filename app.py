@@ -10,8 +10,10 @@ app = flk.Flask(__name__)
 data_manager = read_csv('processed_data.csv')
 @app.route("/")
 def index():
-    rows,_ = data_manager.get_rows_and_list_page_for_list(1)
-    return flk.render_template("index.html",rows=rows)
+    rows,_,ranked_list,random_list = data_manager.get_rows_and_list_page_for_list(1)
+    print(ranked_list)
+    print(random_list)
+    return flk.render_template("index.html",rows=rows,ranked_list=ranked_list.to_dict('records'),random_list=random_list.to_dict('records'))
 
 
 @app.route("/AboutMe")
@@ -21,8 +23,8 @@ def aboutme():
 
 @app.route("/film/<film_name>")
 def anime_film(film_name):
-    title,genres,episodes,year,content = data_manager.get_anime_info_by_name(film_name)
-    return flk.render_template("anime-info.html",film_name=title,content=content,episodes=episodes,genres=genres,year=year)
+    title,genres,episodes,year,content,image_url = data_manager.get_anime_info_by_name(film_name)
+    return flk.render_template("anime-info.html",film_name=title,content=content,episodes=episodes,genres=genres,year=year,image_url=image_url)
 
     
 @app.route("/category/<category_name>/<page>")
@@ -31,10 +33,9 @@ def anime_category(category_name,page):
     rows,list_page = data_manager.get_rows_and_list_page_for_category(category_name,page)
     return flk.render_template("category_list.html",rows = rows, category_name=category_name,page=int(page),list_page = list_page,cat_name="Category: {}".format(data_manager.get_category_name(category_name)))
 
-
 @app.route("/list/<page>")
 def anime_page(page):
-    rows,list_page = data_manager.get_rows_and_list_page_for_list(page)
+    rows,list_page,_,_ = data_manager.get_rows_and_list_page_for_list(page)
     return flk.render_template("category_list.html",page=int(page),rows=rows,list_page=list_page,cat_name="list of anime")
 
 
@@ -57,7 +58,8 @@ def searched(page):
     return flk.render_template('category_list.html',page=p,rows=rows,list_page=list_page,cat_name="Search for: {0}".format(query))
 @app.route("/film/<film_name>/<episode>")
 def watch(film_name,episode):
-    return flk.render_template('anime-watching.html')
+    episodes = data_manager.get_epsiodes_from_name(film_name)
+    return flk.render_template('anime-watching.html',episodes=int(episodes),episode=int(episode),film_name=film_name)
 
 if __name__ == '__main__':
     app.run(debug=True,port=int(os.environ.get('PORT', 8080)))

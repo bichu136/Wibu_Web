@@ -172,6 +172,75 @@ padding-top: 10px;
 	padding-bottom: 5px;
 }
 
+.ribbon{
+	position: relative;
+	z-index: 1000;
+	top:12%;
+	left:12%;
+	max-width: 100%;
+	color:white;
+	
+}
+
+
+.ribbon_info{
+	position: absolute;
+	z-index: 1000;
+	bottom:10px;
+	left:1.5%;
+	width: 97%;
+	height:75%;
+	background-image: linear-gradient(rgba(255,255,255,0), rgba(75,75,75,90));;
+	opacity: 0;
+	transition: 1s;
+}
+.ribbon_info:hover {opacity: 1}
+
+
+.scroll-up {
+	height: 225px;	
+	overflow: hidden;
+	position: relative;
+	background:rgba(255,255,255,0);
+	color: white;
+   }
+   .scroll-up p {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	text-align: center;
+	/* Starting position */
+	-moz-transform:translateY(100%);
+	-webkit-transform:translateY(100%);	
+	transform:translateY(100%);
+	/* Apply animation to this element */	
+	-moz-animation: scroll-up 5s linear infinite;
+	-webkit-animation: scroll-up 15s linear infinite;
+	animation: scroll-up 15s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes scroll-up {
+	0%   { -moz-transform: translateY(100%); }
+	100% { -moz-transform: translateY(-100%); }
+   }
+   @-webkit-keyframes scroll-up {
+	0%   { -webkit-transform: translateY(100%); }
+	100% { -webkit-transform: translateY(-100%); }
+   }
+   @keyframes scroll-up {
+	0%   { 
+	-moz-transform: translateY(100%); /* Browser bug fix */
+	-webkit-transform: translateY(100%); /* Browser bug fix */
+	transform: translateY(100%); 		
+	}
+	100% { 
+	-moz-transform: translateY(-100%); /* Browser bug fix */
+	-webkit-transform: translateY(-100%); /* Browser bug fix */
+	transform: translateY(-100%); 
+	}
+   }
+
 /*Footer*/
 
 .footer-dark {
@@ -207,3 +276,4 @@ padding-top: 10px;
   font-size:15px;
   margin-bottom:0;
 }
+

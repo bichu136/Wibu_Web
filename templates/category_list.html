@@ -28,38 +28,21 @@
 			{%endfor%}
 		</ul>
 		</nav>
-<<<<<<< HEAD
-
-		{%for row in rows%}
-		<div class="row" style="padding-bottom: 10px;">
-		    {%for i in row%}
-		    <div class="col-sm-3">
-		        <div class="card film_card" style="width: 95%; height: 100%; background-color: #400080;">
-		            <a class="film_thumbnail" href='/film/{{i[0]}}' style="color: white; padding-top: 10px;">
-					<img src="{{i[1]}}" class="card-img-top" alt="..." >
-					<div class="card-body text-listfilm" style="bottom: 0px; padding-bottom: 10px; padding-top:10px;">
-						<p class="card-text">{{i[0]}}</p>
-					</div>
-					</a>
-		        </div>
-		    </div>
-		    {%endfor%}
-=======
 		{%for row in rows%}
 		<div class="row" style="padding-bottom: 10px;">
 			{%for i in row%}
 			<div class="col-sm-3 col-listfilm">
+				<div class="ribbon" ><span style = "background-color:red; padding:3px;">??/??</span></div>
 				<div class="card film_card"  style="width: 95%; height: 100%; background-color: #400080;">
-					<a class="film_thumbnail" href='/film/{{i[0]}}' style="color: white;">
+					<a class="film_thumbnail" href='/film/{{i[0]}}' style="color: white;padding-top: 10px;">
 					<img src="{{i[1]}}" class="card-img-top" alt="..." >
-					<div class="card-body text-listfilm" style="bottom: 0px;">
+					<div class="card-body text-listfilm" style="bottom: 0px; padding-bottom: 10px; padding-top:10px;">
 						<p class="card-text">{{i[0]}}</p>
 					</div>
 					</a>
 				</div>
 			</div>
 			{%endfor%}
->>>>>>> d480ca2624c24e73f490681b008145cc79835dec
 		</div>
 		
 		{%endfor%}

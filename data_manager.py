@@ -23,6 +23,12 @@ class DataManager():
         for i in genres_list:
             result.append((self.__invert_mapper[i.split('_')[1]],self.__mapper_reverse[i.split('_')[1]]))
         return result
+    def __get_ranked_list(self):
+        Ranking = self.Data.sort_values(by='score',ascending=False)[:5]
+        return Ranking
+    def __get_random_list(self):
+        self.Data.sample(5)
+        return self.Data.sample(5)
     def get_anime_info_by_name(self,film_name):
         x = self.Data[self.Data['title']==film_name]
         title =  x['title'].iloc[0]
@@ -31,7 +37,8 @@ class DataManager():
         # content = x['content']
         year=x['aired_str'].iloc[0].split('-')[0]
         content = self.__get_content(x['anime_id'].iloc[0])
-        return title,genres,episodes,year,content
+        link_image = x['image_url'].iloc[0]
+        return title,genres,episodes,year,content,link_image
     def __get_content(self,anime_id):
         s = open('./content/{}'.format(str(anime_id)+'.txt'),encoding='utf-8').read()
         return s
@@ -63,11 +70,15 @@ class DataManager():
         p = int(page)
         rows = self.__get_rows(url_D,DataManager.num_row,DataManager.num_col,p)
         list_page= self.__create_list_page(url_D,p,'/list')
-        return rows,list_page
+        ranked = self.__get_ranked_list()
+        random = self.__get_random_list()
+        return rows,list_page,ranked,random
     def get_category_name(self,category_name):
         return self.__invert_mapper[self.__mapper[category_name]]
 
-
+    def get_epsiodes_from_name(self,film_name):
+        x = self.Data[self.Data['title']==film_name]
+        return x['episodes'].iloc[0]
     def get_rows_and_list_page_for_category(self,category_name,page):
         data8 = self.Data[self.Data["genre_"+self.__mapper[category_name]]==True]
         p = int(page)
