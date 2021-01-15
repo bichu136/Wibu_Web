@@ -2,11 +2,30 @@
 {%extends "index.html"%}
 {% block content %}
 <!-- Random suggest -->
-<div class="container">   
-		 	<div class="carousel-inner">
-			    <div class="carousel-item active">
-				    <img src="/static/img/JUST_GOOGLE_IT.png" class="d-block w-100 h-100" ><!--style= "max-height= 100%, max-width: 100%;"-->
+<div class="container" style="position:relative">   
+		 	<div>
+			    <div>
+				    <img src="/static/img/JUST_GOOGLE_IT.png" style="position: relative; object-fit: contain;max-height: 100%; max-width: 100%;">
+					<div class="ribbon_info" style=" max-height: 50%;">
+						<div class="row">
+							<div class='col-sm-3' style="align-items: center;"><img src="{{image_url}}"></img></div>
+							<div class='col-sm-9'>
+								<p class="movie-name" style="text-align: left;"> {{film_name}} </p>
+								<div class='anime-content'>
+									<div class="scroll-up">
+										<w class="movie-content">Nội dung:</w> <br>
+										{{ content|safe }}
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						
+						
+
+					</div>
 				</div>
+				
 			</div>
 </div>	
 
@@ -34,9 +53,6 @@
 
 		<div class="col-sm-8">
 			<div class="alert alert-secondary anime_info" role="alert">
-				<p class="movie-name"> {{film_name}} </p>
-				<w class="movie-content">Nội dung:</w> <br>
-				{{ content|safe }}
 			</div>
 			
 		</div>
