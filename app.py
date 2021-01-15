@@ -35,7 +35,7 @@ def anime_category(category_name,page):
 
 @app.route("/list/<page>")
 def anime_page(page):
-    rows,list_page = data_manager.get_rows_and_list_page_for_list(page)
+    rows,list_page,_,_ = data_manager.get_rows_and_list_page_for_list(page)
     return flk.render_template("category_list.html",page=int(page),rows=rows,list_page=list_page,cat_name="list of anime")
 
 
@@ -56,7 +56,9 @@ def searched(page):
     p = int(page)
     rows,list_page= data_manager.get_rows_for_searched_query(query,page)
     return flk.render_template('category_list.html',page=p,rows=rows,list_page=list_page,cat_name="Search for: {0}".format(query))
-
+@app.route("/film/<film_name>/<episode>")
+def watch(film_name,episode):
+    return flk.render_template('anime-watching.html')
 
 if __name__ == '__main__':
     app.run(debug=True,port=int(os.environ.get('PORT', 8080)))

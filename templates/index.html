@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/static/style.css">
 	<link rel="stylesheet" type="text/css" href="/static/fontawesome/css/all.css">
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 <body>
 
@@ -63,7 +63,7 @@
         	</li>
 
         	<li class="nav-item">
-          	<a class="nav-link" href="#">phim duoc ua thich</a>
+          	<a class="nav-link" href="#">Phim được ưa thích</a>
         	</li>
       	</ul>
 <!-- END MUC LUC -->
@@ -102,31 +102,34 @@
 			    </div>
 
 		    	<div class="carousel-item">
-		    		<a href="/film/ONE" title="ONE PIECE">
-				    <img src="/static/img/one_piece.png" class="d-block w-100"></a>
-				    <div class="carousel-caption" style="padding-bottom: 17%;">
-				        <h5><span class="font_random_suggest">ONE PIECE</span></h5>
+			    	<a href="/film/Doraemon" title="DORAEMON">
+		      		<img src="/static/img/doraemon.jpg" class="d-block w-100"></a>
+		      		<div class="carousel-caption" style="padding-bottom: 11%;">
+		        		<h5><span class="font_random_suggest">DORAEMON</span></h5>
+		      		</div>
+		    	</div>
+
+		    	<div class="carousel-item">
+		    		<a href="/film/Pokemon" title="POKEMON">
+		      		<img src="/static/img/pokemon.jpg" class="d-block w-100"></a>
+		      		<div class="carousel-caption" style="padding-bottom: 19%;">
+		        		<h5><span class="font_random_suggest">POKEMON</span></h5>
+		      		</div>
+		    	</div>
+
+		    	<div class="carousel-item">
+		    		<a href="/film/Dragon%20Ball" title="DRAGON BALL">
+				    <img src="/static/img/dragon_ball.jpg" class="d-block w-100"></a>
+				    <div class="carousel-caption" style="padding-bottom: 13%;">
+				        <h5><span class="font_random_suggest">DRAGON BALL</span></h5>
 				    </div>
 		    	</div>
 
 		    	<div class="carousel-item">
-		      		<img src="/static/img/pokemon.jpg" class="d-block w-100">
-		      		<div class="carousel-caption" style="padding-bottom: 19%;">
-		        		<h5><span class="font_random_suggest">POKEMON</span></h5>
-		      		</div>
-		    	</div>
-
-		    	<div class="carousel-item">
-		      		<img src="/static/img/pokemon.jpg" class="d-block w-100">
-		      		<div class="carousel-caption" style="padding-bottom: 19%;">
-		        		<h5><span class="font_random_suggest">POKEMON</span></h5>
-		      		</div>
-		    	</div>
-
-		    	<div class="carousel-item">
-		      		<img src="/static/img/pokemon.jpg" class="d-block w-100">
-		      		<div class="carousel-caption" style="padding-bottom: 19%;">
-		        		<h5><span class="font_random_suggest">POKEMON</span></h5>
+		    		<a href="/film/Shingeki%20no%20Kyojin" title="ATTACK ON TITAN">
+		      		<img src="/static/img/aot.jpg" class="d-block w-100"></a>
+		      		<div class="carousel-caption" style="padding-bottom: 16%;">
+		        		<h5><span class="font_random_suggest">ATTACK ON TITAN</span></h5>
 		      		</div>
 		    	</div>
 
@@ -146,8 +149,8 @@
 </div>
 
 <div class="container">
-		<button class="btn btn-danger btn-nut" style="font-size: 23px; color: white;" >
-			DACH MỤC PHIM MỚI UPDATE
+		<button class="btn btn-danger" style="font-size: 23px; color: white;" >
+			DACH MỤC PHIM
 		</button>
 </div>
 <!-- End Random suggest -->
@@ -155,7 +158,7 @@
 <!-- List movie -->
 <div class="container">
 	<div class="row">
-
+		<!-- Left content -->
 		<div class="col-sm-8">
 			<div class="container" style="padding-left: 10px;">
 				{%for row in rows%}
@@ -178,12 +181,16 @@
 				
 				{%endfor%}
 			</div>
+							<div class="container">
+								<a href="/list/1"><button class="btn btn-danger btn-nut">Xem thêm</button></a>
+							</div>
 		</div>
 
+		<!-- Right content -->
 		<div class="col-sm-4">
 			<div class="container" style="padding-left: 0px; padding-right: 0px;">
-				<div class="btn-danger">
-					<p style="font-size: 25px;"> <i class="fas fa-star" style="color:orange;"></i> <span>BẢNG XẾP HẠNG</span> </p>
+				<div style="background: #ff0080;">
+					<p style="font-size: 30px; font-weight: bold; color:white;"><i class="fas fa-star" style="color:orange;"></i>BẢNG XẾP HẠNG</p>
 				</div>
 				
 				<div class="list-group">
@@ -206,8 +213,8 @@
 				<br>
 				<br>
 
-				<div class="btn-danger">
-					<p style="font-size: 25px;"> <i class="fas fa-star" style="color:orange;"></i> <span>BẢNG XẾP HẠNG</span> </p>
+				<div style="background: #ff0080;">
+					<p style="font-size: 30px; font-weight: bold; color: white;"><i class="fas fa-star" style="color:orange;"></i>BẢNG XẾP HẠNG</p>
 				</div>
 				<div class="list-group">
 				    {%for i in random_list%}
@@ -231,21 +238,34 @@
 </div>
 <!-- End list movie -->
 
-<div class="container">
-	<a href="/list/1"><button class="btn btn-danger btn-nut">Xem thêm</button></a>
-</div>
 {% endblock %}
 
 <!-- Back to top Button -->
 <button onclick="topFunction()" id="BackToTop_BTN" title="Go to top"></button>
 <!-- End Back to top Button -->
 
-	<br>
-	<p class="dynamic-change">
-		TextChanging
-	</p>
+<!--Footer -->
+<div class="container">
+    <div class="footer-dark">
+        <footer>
+ 
+                <p style="text-align: center;">Liên hệ với chúng tôi</p>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+  
+                <p class="copyright">Wibu Web © 2021</p>
+        </footer>
+    </div>
+</div>
+<<!-- -->
 
 	<script src="/static/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
 	<script src="/static/script/search.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
+
+
+
+
+
+<!-- Credit to https://epicbootstrap.com/snippets/footer-dark -->
