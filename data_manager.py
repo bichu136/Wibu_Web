@@ -76,7 +76,9 @@ class DataManager():
     def get_category_name(self,category_name):
         return self.__invert_mapper[self.__mapper[category_name]]
 
-
+    def get_epsiodes_from_name(self,film_name):
+        x = self.Data[self.Data['title']==film_name]
+        return x['episodes'].iloc[0]
     def get_rows_and_list_page_for_category(self,category_name,page):
         data8 = self.Data[self.Data["genre_"+self.__mapper[category_name]]==True]
         p = int(page)

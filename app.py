@@ -58,7 +58,8 @@ def searched(page):
     return flk.render_template('category_list.html',page=p,rows=rows,list_page=list_page,cat_name="Search for: {0}".format(query))
 @app.route("/film/<film_name>/<episode>")
 def watch(film_name,episode):
-    return flk.render_template('anime-watching.html')
+    episodes = data_manager.get_epsiodes_from_name(film_name)
+    return flk.render_template('anime-watching.html',episodes=int(episodes),episode=int(episode),film_name=film_name)
 
 if __name__ == '__main__':
     app.run(debug=True,port=int(os.environ.get('PORT', 8080)))

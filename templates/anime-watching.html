@@ -9,9 +9,13 @@
 				<br>
 				<a style="font-size: 20px;"><button class="btn btn-danger">Danh sách tập</button></a>
 				<div class="d-grid gap-2 d-md-block" style="display: inline; padding-top: 10px;">
-					<button class="btn btn-secondary" type="button">1</button>
-		 			<button class="btn btn-secondary" type="button">2</button>
-		 			<button class="btn btn-secondary" type="button">3</button>
+					{%for i in range(1,episodes)%}
+					{%if i == episode%}		 			
+					<a href='/film/{{film_name}}/{{i}}'><button class="btn btn-secondary active" type="button">{{i}}</button></a>
+					 {%else%}
+					 <a href='/film/{{film_name}}/{{i}}'><button class="btn btn-secondary" type="button" >{{i}}</button></a>
+					 {%endif%}
+					 {%endfor%}
 				</div>
 				
 	</div>
