@@ -1,0 +1,5 @@
+build:
+  docker:
+    web: Dockerfile
+run:
+  web: gunicorn --bind :$PORT --workers 1 --threads 4 app:app

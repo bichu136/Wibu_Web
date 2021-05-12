@@ -1,0 +1,6 @@
+Flask
+gunicorn
+requests_toolbelt
+sseclient
+python_jwt
+numpy pandas
