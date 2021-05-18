@@ -14,9 +14,14 @@ def index():
     return flk.render_template("index.html",rows=rows,ranked_list=ranked_list.to_dict('records'),random_list=random_list.to_dict('records'))
 
 
-@app.route("/AboutMe")
+@app.route("/aboutme")
 def aboutme():
-    return flk.render_template("Aboutme.html")
+    return flk.render_template("aboutme.html")
+
+
+@app.route("/contact")
+def contact():
+    return flk.render_template("contact.html")
 
 
 @app.route("/film/<film_name>")
