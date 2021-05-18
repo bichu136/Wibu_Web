@@ -6,7 +6,7 @@ def read_csv(csv_path):
     return DataManager(data)
 
 class DataManager():
-    num_row= 8
+    num_row= 6
     num_col=4
     __indexer = TfIdfIndex()
     def __init__(self,DataFrame):
