@@ -34,18 +34,18 @@ def anime_film(film_name):
 def anime_category(category_name,page):
     # sort to specific category
     rows,list_page = data_manager.get_rows_and_list_page_for_category(category_name,page)
-    return flk.render_template("category_list.html",rows = rows, category_name=category_name,page=int(page),list_page = list_page,cat_name="Category: {}".format(data_manager.get_category_name(category_name)))
+    return flk.render_template("category_list.html",rows = rows, category_name=category_name,page=int(page),list_page = list_page,cat_name="Category: {}".format(data_manager.get_category_name(category_name)),film_name='anime')
 
 @app.route("/list/<page>")
 def anime_page(page):
     rows,list_page,_,_ = data_manager.get_rows_and_list_page_for_list(page)
-    return flk.render_template("category_list.html",page=int(page),rows=rows,list_page=list_page,cat_name="list of anime")
+    return flk.render_template("category_list.html",page=int(page),rows=rows,list_page=list_page,cat_name="list of anime",film_name='anime')
 
 
 @app.route("/year/<year>/<page>")
 def anime_year(year,page):
     rows,list_page= data_manager.get_rows_and_list_page_for_year(year,page)
-    return flk.render_template("category_list.html",page=int(page),rows=rows,list_page=list_page,cat_name="year:{}".format(year))
+    return flk.render_template("category_list.html",page=int(page),rows=rows,list_page=list_page,cat_name="year:{}".format(year),film_name='anime')
 
 @app.route("/api/get_searched_list",methods=['post'])
 def get_search_list():
@@ -58,7 +58,7 @@ def searched(page):
     query = request.args['query']
     p = int(page)
     rows,list_page= data_manager.get_rows_for_searched_query(query,page)
-    return flk.render_template('category_list.html',page=p,rows=rows,list_page=list_page,cat_name="Search for: {0}".format(query))
+    return flk.render_template('category_list.html',page=p,rows=rows,list_page=list_page,cat_name="Search for: {0}".format(query),film_name='anime')
 @app.route("/film/<film_name>/<episode>")
 def watch(film_name,episode):
     episodes = data_manager.get_epsiodes_from_name(film_name)
