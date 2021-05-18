@@ -58,7 +58,12 @@ def searched(page):
 def watch(film_name,episode):
     episodes = data_manager.get_epsiodes_from_name(film_name)
     return flk.render_template('anime-watching.html',episodes=int(episodes),episode=int(episode),film_name=film_name)
-
+@app.route("/sitemap.xml")
+def sitemap():
+    f = open('./sitemap.xml')
+    str = f.read()
+    f.close()
+    return str
 if __name__ == '__main__':
     app.run(debug=True,port=int(os.environ.get('PORT', 8080)))
     
