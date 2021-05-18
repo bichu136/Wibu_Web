@@ -20,7 +20,7 @@ def aboutme():
 
 
 @app.route("/contact")
-def aboutme():
+def contact():
     return flk.render_template("contact.html")
 
 
