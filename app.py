@@ -1,5 +1,5 @@
 import flask as flk
-from flask import request,redirect
+from flask import request,redirect,send_from_directory
 import json
 import os
 from data_manager import DataManager,read_csv
@@ -65,10 +65,9 @@ def watch(film_name,episode):
     return flk.render_template('anime-watching.html',episodes=int(episodes),episode=int(episode),film_name=film_name)
 @app.route("/sitemap.xml")
 def sitemap():
-    f = open('./sitemap.xml')
-    str = f.read()
-    f.close()
-    return str
+    return send_from_directory(
+        './', 'sitemap.xml', as_attachment=True
+    )
 if __name__ == '__main__':
     app.run(debug=True,port=int(os.environ.get('PORT', 8080)))
     
