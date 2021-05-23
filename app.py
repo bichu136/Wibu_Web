@@ -71,6 +71,11 @@ def sitemap():
         for line in lines:
             yield line + '\n'
     return Response(generate(),mimetype="application/xml" )
+@app.route("/sitemap1.xml")
+def sitemap1():
+    f = open('x.txt')
+    lines = f.read()
+    return Response(lines,mimetype="application/xml" )
 if __name__ == '__main__':
     app.run(debug=True,port=int(os.environ.get('PORT', 8080)))
     
